@@ -1,0 +1,13 @@
+.li {
+  display: flex;
+  list-style: none;
+  margin: 10px;
+}
+
+.button {
+  color: red;
+}
+
+.complete {
+  text-decoration: line-through;
+}
