@@ -1,0 +1,52 @@
+.header {
+  height: 50px;
+  background-color: #bfc6c4;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.input {
+  text-align: center;
+  margin: 15% auto;
+}
+
+.label {
+  font-size: 18px;
+  margin: 5px;
+}
+
+.todo {
+  width: 50%;
+  height: 25px;
+}
+
+.action {
+  /* position: absolute;
+  left: 70%;
+  top: 80%; */
+  float: right;
+}
+
+.cancel {
+  background: none;
+  border: none;
+  margin-right: 5px;
+  color: gray;
+}
+
+.cancel:hover {
+  color: black;
+}
+
+.save {
+  border: none;
+  border-radius: 20%;
+  background-color: #bfc6c4;
+  color: white;
+  padding: 10px;
+}
+
+.save:hover {
+  background-color: #40393b;
+}

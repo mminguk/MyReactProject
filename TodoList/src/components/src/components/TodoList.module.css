@@ -1,0 +1,28 @@
+.section {
+  background-color: #e8e2d8;
+  width: 45%;
+  height: 400px;
+  margin: 50px auto;
+}
+
+.button {
+  background-color: #bfc6c4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 15%;
+  height: 8%;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #40393b;
+}
+
+.header {
+  height: 50px;
+  background-color: #bfc6c4;
+  color: white;
+  text-align: center;
+}
