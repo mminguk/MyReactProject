@@ -5,49 +5,19 @@ import TodoListItem from './TodoListItem';
 import NewTodo from './NewTodo';
 
 export default function TodoList() {
-  const [todoList, setTodoList] = useState([
-    {
-      id: 1,
-      title: '영단어 30개 외우기',
-    },
-    {
-      id: 2,
-      title: '수학 30문제 풀기',
-    },
-    {
-      id: 3,
-      title: '국어 강의 듣기',
-    },
-  ]);
+  const [todoList, setTodoList] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [Id, setId] = useState(todoList.length + 2);
 
-  function addTodoListHandler(newTodo) {
-    setTodoList((prevTodoList) => {
-      return [
-        {
-          id: Id,
-          title: newTodo,
-        },
-        ...prevTodoList,
-      ];
-    });
-    setId(Id + 1);
-    setIsOpen(false);
-  }
-
-  function removeTodoListHandler(id) {
-    setTodoList((prevTodoList) =>
-      prevTodoList.filter((todo) => todo.id !== id),
-    );
-  }
+  fetch('http://localhost:4000/todoList')
+    .then((response) => response.json())
+    .then((data) => setTodoList(data));
 
   return (
     <>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <NewTodo
           onClose={() => setIsOpen(false)}
-          onAddTodo={addTodoListHandler}
+          nextId={todoList.length + 1}
         />
       </Modal>
       <section className={style.section}>
@@ -56,13 +26,9 @@ export default function TodoList() {
           +추가하기
         </button>
         <ul>
+          {todoList.length === 0 && <p>아무것도 추가된 것이 없습니다...</p>}
           {todoList.map((todo) => (
-            <TodoListItem
-              key={todo.id}
-              id={todo.id}
-              title={todo.title}
-              onDelete={removeTodoListHandler}
-            />
+            <TodoListItem key={todo.id} id={todo.id} title={todo.title} />
           ))}
         </ul>
       </section>
