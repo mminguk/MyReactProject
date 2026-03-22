@@ -54,11 +54,6 @@ app.delete('/delete_todo', (req, res) => {
   res.send(data);
 });
 
-app.get('/memo', (req, res) => {
-  let memoData = require('./memoList.json');
-  res.send(memoData);
-});
-
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });

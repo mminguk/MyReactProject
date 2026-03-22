@@ -19,10 +19,3 @@
 .button:hover {
   background-color: #40393b;
 }
-
-.header {
-  height: 50px;
-  background-color: #bfc6c4;
-  color: white;
-  text-align: center;
-}

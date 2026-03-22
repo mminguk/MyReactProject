@@ -1,0 +1,10 @@
+.div {
+  width: 25%;
+  margin: 5px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.input {
+  width: 75%;
+}

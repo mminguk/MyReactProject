@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import CalendarItem from './CalendarItem';
+import style from './Calendar.module.css';
 
 const groupDatesByWeek = (startDay, endDay) => {
   const weeks = []; // 최종적으로 주 단위로 그룹화된 날짜 배열들을 저장할 배열
@@ -40,13 +41,52 @@ export default function Calendar() {
   const endDay = new Date(lastDayOfMonth);
   endDay.setDate(lastDayOfMonth.getDate() + (6 - lastDayOfMonth.getDay()));
 
+  const handlePrevMonth = () => {
+    // 이전 달로 이동
+    setCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1),
+    );
+  };
+
+  const handleNextMonth = () => {
+    // 다음 달로 이동
+    setCurrentDate(
+      new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1),
+    );
+  };
+
   const weeks = groupDatesByWeek(startDay, endDay);
 
   return (
-    <ul>
-      {weeks.map((date) => (
-        <li>{date.toLocaleString('ko-KR', { day: '2-digit' })}</li>
-      ))}
-    </ul>
+    <section>
+      <button type="button" onClick={handlePrevMonth}>
+        이전
+      </button>
+      <span>
+        {currentDate.toLocaleDateString('ko-KR', {
+          year: 'numeric',
+          month: 'long',
+        })}
+      </span>
+      <button type="button" onClick={handleNextMonth}>
+        다음
+      </button>
+      <div>
+        {weeks.map((date) => (
+          <div className={style.div}>
+            {date.map((item) => (
+              <CalendarItem
+                key={item.toLocaleString('en-US', {
+                  day: 'numeric',
+                })}
+                date={item.toLocaleString('en-US', {
+                  day: 'numeric',
+                })}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }

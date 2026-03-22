@@ -1,0 +1,11 @@
+.header {
+  height: 50px;
+  background-color: #bfc6c4;
+  color: white;
+  margin: 0 auto;
+}
+
+.span {
+  margin: 5px;
+  float: left;
+}
