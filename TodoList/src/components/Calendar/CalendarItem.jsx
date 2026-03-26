@@ -1,29 +1,18 @@
-import { useState } from 'react';
 import style from './CalendarItem.module.css';
+import { useState, useEffect } from 'react';
 
 export default function CalendarItem(props) {
-  const [openForm, setOpenForm] = useState(false);
-  function openFormHandler() {
-    setOpenForm(true);
-  }
+  const [todayTodo, setTodayTodo] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:4000/calendar')
+      .then((response) => response.json())
+      .then((data) => setTodayTodo(data));
+  }, []);
 
-  function closeFormHandler(event) {
-    event.preventDefault();
-    setOpenForm(false);
-  }
   return (
-    <div className={style.div} onClick={openFormHandler}>
+    <div className={style.div}>
       {props.date}
-      <div>
-        {openForm ? (
-          <form onSubmit={closeFormHandler}>
-            <input className={style.input} type="text" />
-            <button>저장</button>
-          </form>
-        ) : (
-          <></>
-        )}
-      </div>
+      <div>{todayTodo}</div>
     </div>
   );
 }

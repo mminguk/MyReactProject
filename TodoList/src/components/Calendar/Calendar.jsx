@@ -3,9 +3,9 @@ import CalendarItem from './CalendarItem';
 import style from './Calendar.module.css';
 
 const groupDatesByWeek = (startDay, endDay) => {
-  const weeks = []; // 최종적으로 주 단위로 그룹화된 날짜 배열들을 저장할 배열
-  let currentWeek = []; // 현재 처리 중인 주를 나타내는 배열
-  let currentDate = new Date(startDay); // 반복 처리를 위한 현재 날짜 변수, 시작 날짜로 초기화
+  const weeks = [];
+  let currentWeek = [];
+  let currentDate = new Date(startDay);
 
   // 시작 날짜부터 끝 날짜까지 반복
   while (currentDate <= endDay) {

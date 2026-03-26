@@ -1,7 +1,12 @@
 import { useState, useRef } from 'react';
 import style from './TodoListItem.module.css';
 
-export default function TodoListItem({ title, onUpdate, id }) {
+export default function TodoListItem({
+  title,
+  id,
+  onDeleteTodo,
+  onUpdateTodo,
+}) {
   const [complete, setComplete] = useState(false);
   const [mode, setMode] = useState('read');
   const classes = complete ? style.complete : '';
@@ -19,8 +24,11 @@ export default function TodoListItem({ title, onUpdate, id }) {
         'Content-Type': 'application/json',
       },
     });
-    const resData = response.json();
-    return resData;
+    if (!response.ok) {
+      throw new Error('에러가 발생하였습니다.');
+    }
+    const resData = await response.json();
+    onDeleteTodo(resData);
   }
 
   async function updateHandler(event) {
@@ -35,9 +43,12 @@ export default function TodoListItem({ title, onUpdate, id }) {
         'Content-Type': 'application/json',
       },
     });
-    const resData = response.json();
+    if (!response.ok) {
+      throw new Error('에러가 발생하였습니다.');
+    }
+    const resData = await response.json();
     setMode('read');
-    return resData;
+    onUpdateTodo(resData);
   }
 
   if (mode === 'update') {

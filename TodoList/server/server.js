@@ -40,7 +40,8 @@ app.post('/add', (req, res) => {
 });
 
 app.put('/update_todo', (req, res) => {
-  data[req.body.id - 1].title = req.body.title;
+  const index = data.findIndex((item) => item.id === parseInt(req.body.id));
+  data[index].title = req.body.title;
   fs.writeFileSync('./todoList.json', JSON.stringify(data));
   res.send(data);
 });
@@ -52,6 +53,13 @@ app.delete('/delete_todo', (req, res) => {
   data.map((todo) => (todo.id = todo.id - 1));
   fs.writeFileSync('./todoList.json', JSON.stringify(data));
   res.send(data);
+});
+
+app.get('/calendar', (req, res) => {
+  const filterData = data.filter(
+    (item) => item.date.toString() === req.body.date.toString(),
+  );
+  res.send(filterData);
 });
 
 app.listen(port, () => {

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Modal from '../Modal';
 import style from './TodoList.module.css';
 import TodoListItem from './TodoListItem';
@@ -15,6 +15,18 @@ export default function TodoList() {
     setMode(mode);
   }
 
+  function addTodoHandler(newTodo) {
+    setTodoList((prev) => [...prev, newTodo]);
+  }
+
+  function deleteTodoHandler(deletedTodo) {
+    setTodoList(deletedTodo);
+  }
+
+  function updateTodoHandler(updateTodo) {
+    setTodoList(updateTodo);
+  }
+
   let content = (
     <>
       <button className={style.button} onClick={() => setIsOpen(true)}>
@@ -22,9 +34,17 @@ export default function TodoList() {
       </button>
       <ul>
         {todoList.length === 0 && <p>아무것도 추가된 것이 없습니다...</p>}
-        {todoList.map((todo) => (
-          <TodoListItem key={todo.id} id={todo.id} title={todo.title} />
-        ))}
+        {todoList &&
+          todoList.map((todo) => (
+            <TodoListItem
+              key={todo.id}
+              id={todo.id}
+              title={todo.title}
+              date={todo.date}
+              onDeleteTodo={deleteTodoHandler}
+              onUpdateTodo={updateTodoHandler}
+            />
+          ))}
       </ul>
     </>
   );
@@ -32,26 +52,11 @@ export default function TodoList() {
   if (mode === 'Calendar') {
     content = <Calendar />;
   }
-
-  if (mode === 'todoList') {
-    content = (
-      <>
-        <button className={style.button} onClick={() => setIsOpen(true)}>
-          +추가하기
-        </button>
-        <ul>
-          {todoList.length === 0 && <p>아무것도 추가된 것이 없습니다...</p>}
-          {todoList.map((todo) => (
-            <TodoListItem key={todo.id} id={todo.id} title={todo.title} />
-          ))}
-        </ul>
-      </>
-    );
-  }
-
-  fetch('http://localhost:4000/todoList')
-    .then((response) => response.json())
-    .then((data) => setTodoList(data));
+  useEffect(() => {
+    fetch('http://localhost:4000/todoList')
+      .then((response) => response.json())
+      .then((data) => setTodoList(data));
+  }, []);
 
   return (
     <>
@@ -59,6 +64,7 @@ export default function TodoList() {
         <NewTodo
           onClose={() => setIsOpen(false)}
           nextId={todoList.length + 1}
+          onAddTodo={addTodoHandler}
         />
       </Modal>
       <section className={style.section}>

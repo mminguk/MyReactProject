@@ -1,9 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import style from './NewTodo.module.css';
 
-export default function NewTodo({ onClose, nextId }) {
+const NewTodo = ({ onClose, nextId, onAddTodo }) => {
   const input = useRef();
   let id = nextId;
+
   async function submitHandler(event) {
     event.preventDefault();
 
@@ -15,6 +16,7 @@ export default function NewTodo({ onClose, nextId }) {
       body: JSON.stringify({
         id,
         title: input.current.value,
+        date: new Date().toLocaleDateString(),
       }),
     });
     if (!response.ok) {
@@ -22,8 +24,8 @@ export default function NewTodo({ onClose, nextId }) {
     }
     const resData = await response.json();
     id = id + 1;
+    onAddTodo(resData);
     onClose();
-    return resData;
   }
 
   return (
@@ -49,4 +51,6 @@ export default function NewTodo({ onClose, nextId }) {
       </p>
     </form>
   );
-}
+};
+
+export default NewTodo;
