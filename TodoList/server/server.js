@@ -11,6 +11,8 @@ const corsOption = {
 
 let data = require('./todoList.json');
 
+const today = new Date().toLocaleDateString();
+
 app.use(cors(corsOption));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -49,6 +51,15 @@ app.put('/update_todo', (req, res) => {
 app.delete('/delete_todo', (req, res) => {
   if (req.body.id) {
     data = data.filter((todo) => todo.id !== req.body.id);
+  }
+  data.map((todo) => (todo.id = todo.id - 1));
+  fs.writeFileSync('./todoList.json', JSON.stringify(data));
+  res.send(data);
+});
+
+app.delete('/complete_todo', (req, res) => {
+  if (req.body.date !== today) {
+    data = data.filter((todo) => todo.date !== today);
   }
   data.map((todo) => (todo.id = todo.id - 1));
   fs.writeFileSync('./todoList.json', JSON.stringify(data));

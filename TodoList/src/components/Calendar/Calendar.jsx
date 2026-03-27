@@ -28,6 +28,7 @@ const groupDatesByWeek = (startDay, endDay) => {
 
 export default function Calendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [calendarPlanList, setCalendarPlanList] = useState([]);
 
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
@@ -40,6 +41,8 @@ export default function Calendar() {
   // 달력 끝 날짜를 현재 달의 마지막 날의 주의 토요일로 설정
   const endDay = new Date(lastDayOfMonth);
   endDay.setDate(lastDayOfMonth.getDate() + (6 - lastDayOfMonth.getDay()));
+
+  const weeks = groupDatesByWeek(startDay, endDay);
 
   const handlePrevMonth = () => {
     // 이전 달로 이동
@@ -55,7 +58,9 @@ export default function Calendar() {
     );
   };
 
-  const weeks = groupDatesByWeek(startDay, endDay);
+  const addCalendarPlanHandler = (plan) => {
+    setCalendarPlanList((prev) => [...prev, plan]);
+  };
 
   return (
     <section>
@@ -73,15 +78,18 @@ export default function Calendar() {
       </button>
       <div>
         {weeks.map((date) => (
-          <div className={style.div}>
+          <div className={style.div} key={date}>
             {date.map((item) => (
               <CalendarItem
                 key={item.toLocaleString('en-US', {
                   day: 'numeric',
                 })}
-                date={item.toLocaleString('en-US', {
+                date={item.toLocaleDateString()}
+                day={item.toLocaleString('en-US', {
                   day: 'numeric',
                 })}
+                onAddCalender={addCalendarPlanHandler}
+                data={calendarPlanList}
               />
             ))}
           </div>

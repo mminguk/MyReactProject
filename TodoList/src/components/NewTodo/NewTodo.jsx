@@ -1,8 +1,10 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import style from './NewTodo.module.css';
+import Modal from '../Modal';
 
 const NewTodo = ({ onClose, nextId, onAddTodo }) => {
   const input = useRef();
+  const [isComplete, setIsComplete] = useState(false);
   let id = nextId;
 
   async function submitHandler(event) {
@@ -26,30 +28,39 @@ const NewTodo = ({ onClose, nextId, onAddTodo }) => {
     id = id + 1;
     onAddTodo(resData);
     onClose();
+    setIsComplete(true);
   }
 
   return (
-    <form onSubmit={submitHandler}>
-      <p className={style.input}>
-        <label htmlFor="todo" className={style.label}>
-          할 일
-        </label>
-        <input
-          type="text"
-          id="todo"
-          name="todo"
-          className={style.todo}
-          ref={input}
-          required
-        />
-      </p>
-      <p className={style.action}>
-        <button type="button" onClick={onClose} className={style.cancel}>
-          취소
+    <>
+      <Modal isOpen={isComplete} onClose={onClose}>
+        <h2>완료되었습니다.</h2>
+        <button type="button" onClick={() => setIsComplete(false)}>
+          확인
         </button>
-        <button className={style.save}>저장</button>
-      </p>
-    </form>
+      </Modal>
+      <form onSubmit={submitHandler}>
+        <p className={style.input}>
+          <label htmlFor="todo" className={style.label}>
+            할 일
+          </label>
+          <input
+            type="text"
+            id="todo"
+            name="todo"
+            className={style.todo}
+            ref={input}
+            required
+          />
+        </p>
+        <p className={style.action}>
+          <button type="button" onClick={onClose} className={style.cancel}>
+            취소
+          </button>
+          <button className={style.save}>저장</button>
+        </p>
+      </form>
+    </>
   );
 };
 

@@ -68,7 +68,7 @@ export default function TodoList() {
         />
       </Modal>
       <section className={style.section}>
-        <Header onSelect={changeModeHandler} />
+        <Header onSelect={changeModeHandler} mode={mode} />
         {content}
       </section>
     </>

@@ -4,6 +4,7 @@ import style from './TodoListItem.module.css';
 export default function TodoListItem({
   title,
   id,
+  date,
   onDeleteTodo,
   onUpdateTodo,
 }) {
@@ -19,6 +20,7 @@ export default function TodoListItem({
       body: JSON.stringify({
         id,
         title,
+        date,
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -49,6 +51,25 @@ export default function TodoListItem({
     const resData = await response.json();
     setMode('read');
     onUpdateTodo(resData);
+  }
+
+  async function completeTodoHandler() {
+    const response = await fetch('http://localhost:4000/complete_todo', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id,
+        title,
+        date,
+      }),
+    });
+    if (!response.ok) {
+      throw new Error('에러가 발생하였습니다.');
+    }
+    const resData = response.json();
+    onDeleteTodo(resData);
   }
 
   if (mode === 'update') {

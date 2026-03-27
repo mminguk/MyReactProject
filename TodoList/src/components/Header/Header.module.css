@@ -6,6 +6,9 @@
 }
 
 .span {
-  margin: 5px;
-  float: left;
+  padding: 0 10px 25px 10px;
+}
+
+.selected {
+  background-color: #a7afad;
 }

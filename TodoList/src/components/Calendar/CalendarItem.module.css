@@ -1,8 +1,13 @@
 .div {
   width: 25%;
+  height: 2.5rem;
   margin: 5px;
   text-align: center;
-  padding-bottom: 10px;
+  padding-bottom: 25px;
+}
+
+.today {
+  background-color: #c7c2b9;
 }
 
 .input {
