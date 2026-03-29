@@ -29,13 +29,18 @@ const NewTodo = ({ onClose, nextId, onAddTodo }) => {
     onAddTodo(resData);
     onClose();
     setIsComplete(true);
+    input.current.value = '';
   }
 
   return (
     <>
       <Modal isOpen={isComplete} onClose={onClose}>
         <h2>완료되었습니다.</h2>
-        <button type="button" onClick={() => setIsComplete(false)}>
+        <button
+          type="button"
+          className={style.okay}
+          onClick={() => setIsComplete(false)}
+        >
           확인
         </button>
       </Modal>

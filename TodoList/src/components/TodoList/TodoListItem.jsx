@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import style from './TodoListItem.module.css';
+import Modal from '../Modal';
 
 export default function TodoListItem({
   title,
@@ -10,7 +11,7 @@ export default function TodoListItem({
 }) {
   const [complete, setComplete] = useState(false);
   const [mode, setMode] = useState('read');
-  const classes = complete ? style.complete : '';
+  const [deleteBtnTouched, setDeleteBtnTouched] = useState(false);
   const input = useRef();
   let content = <p onClick={() => setMode('update')}>{title}</p>;
 
@@ -30,6 +31,7 @@ export default function TodoListItem({
       throw new Error('에러가 발생하였습니다.');
     }
     const resData = await response.json();
+    setDeleteBtnTouched(true);
     onDeleteTodo(resData);
   }
 
@@ -70,6 +72,7 @@ export default function TodoListItem({
     }
     const resData = response.json();
     onDeleteTodo(resData);
+    completeTodoHandler();
   }
 
   if (mode === 'update') {
@@ -88,16 +91,17 @@ export default function TodoListItem({
   }
 
   return (
-    <li className={style.li}>
-      <input
-        type="checkbox"
-        onClick={() => setComplete(!complete)}
-        disabled={complete}
-      />
-      {content}
-      <button className={style.button} onClick={deleteHandler}>
-        X
-      </button>
-    </li>
+      <li className={style.li}>
+        <input
+          type="checkbox"
+          onClick={() => setComplete(!complete)}
+          disabled={complete}
+        />
+        {content}
+        <button className={style.button} onClick={deleteHandler}>
+          X
+        </button>
+      </li>
+    
   );
 }

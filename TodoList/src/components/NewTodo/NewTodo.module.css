@@ -50,3 +50,11 @@
 .save:hover {
   background-color: #40393b;
 }
+
+.okay {
+  border: none;
+  border-radius: 20%;
+  background-color: #bfc6c4;
+  color: white;
+  padding: 10px;
+}
