@@ -1,6 +1,6 @@
 import classes from './Header.module.css';
 
-import userIcon from '../../../public/circle-user-solid.png';
+import userIcon from '../../assets/circle-user-solid.png';
 
 export default function Header() {
   return (
@@ -15,10 +15,6 @@ export default function Header() {
           <li className={classes.li}>
             <img src={userIcon} alt="user icon" />
             <p className={classes.p}>mmmin_001</p>
-          </li>
-          <li className={classes.li}>
-            <img src={userIcon} alt="user icon" />
-            <p className={classes.p}>kkkkkk</p>
           </li>
           <li className={classes.li}>
             <img src={userIcon} alt="user icon" />
