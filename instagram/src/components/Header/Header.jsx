@@ -4,24 +4,74 @@ import userIcon from '../../assets/circle-user-solid.png';
 
 export default function Header() {
   return (
-    <header className={classes.header}>
-      <h1 className={classes.h1}>instagram</h1>
-      <section className={classes.story}>
-        <ul className={classes.ul}>
-          <li className={classes.li}>
-            <img src={userIcon} alt="user icon" />
-            <p className={classes.p}>mkhan_1011</p>
-          </li>
-          <li className={classes.li}>
-            <img src={userIcon} alt="user icon" />
-            <p className={classes.p}>mmmin_001</p>
-          </li>
-          <li className={classes.li}>
-            <img src={userIcon} alt="user icon" />
-            <p className={classes.p}>kkkkkk</p>
-          </li>
-        </ul>
-      </section>
-    </header>
+    <>
+      <header className={classes.header}>
+        <span className={classes.icon}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
+            />
+          </svg>
+        </span>
+        <h1 className={classes.h1}>instagram</h1>
+        <span className={classes.icon}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5"
+            />
+          </svg>
+        </span>
+        <span className={classes.icon}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+            />
+          </svg>
+        </span>
+        <section className={classes.story}>
+          <ul className={classes.ul}>
+            <li className={classes.li}>
+              <img src={userIcon} alt="user icon" />
+              <p className={classes.p}>mkhan_1011</p>
+            </li>
+            <li className={classes.li}>
+              <img src={userIcon} alt="user icon" />
+              <p className={classes.p}>mmmin_001</p>
+            </li>
+            <li className={classes.li}>
+              <img src={userIcon} alt="user icon" />
+              <p className={classes.p}>kkkkkk</p>
+            </li>
+          </ul>
+        </section>
+      </header>
+    </>
   );
 }

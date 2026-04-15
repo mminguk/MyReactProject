@@ -6,10 +6,15 @@
   font-family: 'Oleo Script';
 }
 
+.icon svg {
+  width: 2rem;
+}
+
 .h1 {
   font-size: 54px;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
+  display: inline;
 }
 
 .story {

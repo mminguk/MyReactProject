@@ -66,7 +66,7 @@ export default function Feed() {
         </span>
       </div>
       <div className={classes.text}>
-        <h2>name</h2>
+        <span>name</span>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati
           corrupti voluptates omnis commodi harum. Ea inventore rem, eligendi
@@ -135,7 +135,7 @@ export default function Feed() {
         </span>
       </div>
       <div className={classes.text}>
-        <h2>name</h2>
+        <span>name</span>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati
           corrupti voluptates omnis commodi harum. Ea inventore rem, eligendi

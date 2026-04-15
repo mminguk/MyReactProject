@@ -1,3 +1,4 @@
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Feed from './components/main/Feed';
 
@@ -6,6 +7,7 @@ export default function App() {
     <>
       <Header />
       <Feed />
+      <Footer />
     </>
   );
 }
