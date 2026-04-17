@@ -1,0 +1,36 @@
+.profile {
+  padding: 1rem 1.5rem;
+  width: 50%;
+  display: flex;
+  margin: 0 auto;
+}
+
+.profile img {
+  width: 60px;
+}
+
+.post {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.post img {
+  width: 60%;
+}
+
+.text {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.text span {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.text p {
+  display: inline;
+  padding-left: 0.5rem;
+}

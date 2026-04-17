@@ -1,0 +1,19 @@
+.actions {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.actions svg,
+.heart {
+  width: 2.5rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+
+.heart {
+  color: red;
+}
+
+.bookmark {
+  color: yellow;
+}

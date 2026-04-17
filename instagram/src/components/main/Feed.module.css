@@ -1,49 +1,5 @@
-.profile {
-  padding: 1rem 1.5rem;
-  width: 50%;
-  display: flex;
-  margin: 0 auto;
-}
-
-.profile img {
-  width: 60px;
-}
-
-.post {
-  width: 50%;
-  margin: 0 auto;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.post img {
-  width: 60%;
-}
-
-.actions {
-  width: 50%;
-  margin: 0 auto;
-}
-
-.icon {
-  margin: 0 0.5rem;
-}
-
-.icon svg {
-  width: 2.5rem;
-}
-
-.text {
-  width: 50%;
-  margin: 0 auto;
-}
-
-.text span {
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-.text p {
-  display: inline;
-  padding-left: 0.5rem;
+.ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
