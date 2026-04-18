@@ -7,7 +7,7 @@ export default function Story() {
     <section className={classes.story}>
       <ul className={classes.ul}>
         {storys.map((story) => (
-          <StoryItem key={story.id} name={story.name} />
+          <StoryItem key={story.id} story={story} />
         ))}
       </ul>
     </section>
