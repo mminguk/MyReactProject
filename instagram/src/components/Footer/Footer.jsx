@@ -1,10 +1,10 @@
 import classes from './Footer.module.css';
 
-export default function Footer() {
+export default function Footer({ onChangeMode }) {
   return (
     <footer className={classes.footer}>
       <ul className={classes.ul}>
-        <li className={classes.icon}>
+        <li className={classes.icon} onClick={() => onChangeMode('reels')}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -36,7 +36,7 @@ export default function Footer() {
             />
           </svg>
         </li>
-        <li className={classes.icon}>
+        <li className={classes.icon} onClick={() => onChangeMode('feed')}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -52,7 +52,7 @@ export default function Footer() {
             />
           </svg>
         </li>
-        <li className={classes.icon}>
+        <li className={classes.icon} onClick={() => onChangeMode('explore')}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

@@ -2,13 +2,13 @@
   width: 100%;
   position: fixed;
   top: 90%;
+  right: 4px;
   padding: 2rem;
   background-color: white;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
 }
 
 .ul {
-  background-color: white;
   display: flex;
   justify-content: space-around;
   padding: 0;
@@ -17,9 +17,10 @@
 
 .icon {
   list-style: none;
-  margin: 0 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .icon svg {
   width: 2.5rem;
+  margin: 0 1.5rem;
 }

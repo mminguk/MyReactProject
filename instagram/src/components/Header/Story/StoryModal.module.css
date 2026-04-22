@@ -19,16 +19,39 @@
 
 .profile {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   background-color: white;
 }
 
+.info {
+  display: flex;
+}
+
+.p {
+  margin: 1.5rem auto;
+}
+
 .profile img {
-  width: 75px;
+  width: 4.5rem;
 }
 
 .button {
-  background: transparent;
+  margin: 10px;
+  background-color: transparent;
   border: none;
-  text-align: end;
+}
+
+.button svg {
+  width: 1.5rem;
+  font-weight: bold;
+}
+
+.content {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.content img {
+  width: 80%;
 }

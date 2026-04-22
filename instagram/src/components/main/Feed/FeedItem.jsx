@@ -11,12 +11,14 @@ export default function FeedItem(props) {
         <p>{props.name}</p>
       </div>
       <div className={classes.post}>
-        <img src={props.image} alt="post image" />
-      </div>
-      <FeedActions />
-      <div className={classes.text}>
-        <span>{props.name}</span>
-        <p>{props.content}</p>
+        <div className={classes.image}>
+          <img src={props.image} alt="post image" />
+        </div>
+        <FeedActions />
+        <div className={classes.text}>
+          <span>{props.name}</span>
+          <p>{props.content}</p>
+        </div>
       </div>
     </li>
   );

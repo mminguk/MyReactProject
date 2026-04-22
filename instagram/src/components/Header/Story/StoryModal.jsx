@@ -9,15 +9,30 @@ export default function StoryModal({ name, image, isOpen, onClose }) {
       {isOpen && <div className={classes.backdrop} onClick={onClose} />}
       <dialog className={classes.modal} open={isOpen}>
         <div className={classes.profile}>
-          <div>
+          <div className={classes.info}>
             <img src={userIcon} alt="user icon" />
-            <span>{name}</span>
+            <p className={classes.p}>{name}</p>
           </div>
           <button className={classes.button} onClick={onClose}>
-            X
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
+            </svg>
           </button>
         </div>
-        <img src={image} alt="story image" />
+        <div className={classes.content}>
+          <img src={image} alt="story image" />
+        </div>
       </dialog>
     </>
   );
