@@ -8,19 +8,3 @@
   margin: 0;
   padding: 0;
 }
-
-.li {
-  list-style: none;
-  margin: 0 1rem;
-}
-
-.li img {
-  width: 70px;
-  border: 2px solid gray;
-  border-radius: 75%;
-}
-
-.p {
-  padding: 0;
-  margin: 0 auto;
-}

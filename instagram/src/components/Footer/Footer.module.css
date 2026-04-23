@@ -3,7 +3,6 @@
   position: fixed;
   top: 90%;
   right: 4px;
-  padding: 2rem;
   background-color: white;
   box-sizing: border-box;
 }
@@ -17,10 +16,15 @@
 
 .icon {
   list-style: none;
-  margin-bottom: 2rem;
+  margin: 1rem auto;
 }
 
 .icon svg {
-  width: 2.5rem;
+  width: 3rem;
   margin: 0 1.5rem;
+}
+
+.icon svg:hover {
+  background-color: rgb(219, 210, 210);
+  border-radius: 25px;
 }

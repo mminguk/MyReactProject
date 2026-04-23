@@ -3,10 +3,16 @@
   width: 50%;
   display: flex;
   margin: 0 auto;
+  color: gray;
+  cursor: pointer;
 }
 
 .profile img {
   width: 60px;
+}
+
+.profile p:hover {
+  color: rgb(97, 95, 95);
 }
 
 .image {
@@ -29,6 +35,7 @@
 .text span {
   font-weight: bold;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .text p {

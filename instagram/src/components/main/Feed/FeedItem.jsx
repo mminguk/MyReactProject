@@ -8,7 +8,7 @@ export default function FeedItem(props) {
     <li>
       <div className={classes.profile}>
         <img src={userImg} alt="user image" />
-        <p>{props.name}</p>
+        <p className={classes.p}>{props.name}</p>
       </div>
       <div className={classes.post}>
         <div className={classes.image}>
@@ -17,7 +17,8 @@ export default function FeedItem(props) {
         <FeedActions />
         <div className={classes.text}>
           <span>{props.name}</span>
-          <p>{props.content}</p>
+          <p className={classes.p}>{props.content}</p>
+          <p>11시간 전</p>
         </div>
       </div>
     </li>
