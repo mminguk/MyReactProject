@@ -45,6 +45,7 @@
 .button svg {
   width: 1.5rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .content {
