@@ -1,0 +1,47 @@
+svg {
+  width: 2.5rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+svg:hover {
+  transform: scale(1.025);
+  transition: transform 0.3s linear;
+}
+
+.dialog {
+  width: 50%;
+  text-align: center;
+  border-color: transparent;
+  border-width: 0;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  padding: 0;
+}
+
+.chat-header {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.chat-header h2 {
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.actions img,
+.chats img {
+  width: 3rem;
+}
+
+.actions input {
+  width: 30rem;
+  height: 2rem;
+}
+
+.actions button {
+  height: 2rem;
+}

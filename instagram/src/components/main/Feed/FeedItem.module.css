@@ -3,16 +3,30 @@
   width: 50%;
   display: flex;
   margin: 0 auto;
-  color: gray;
-  cursor: pointer;
 }
 
 .profile img {
-  width: 60px;
+  width: 5.5rem;
 }
 
-.profile p:hover {
+.info {
+  padding-left: 1rem;
+}
+
+.name {
+  cursor: pointer;
+  margin: 1rem auto 0 auto;
+  color: rgb(41, 39, 39);
+  font-weight: bold;
+}
+
+.name:hover {
   color: rgb(97, 95, 95);
+}
+
+.recommend {
+  margin-top: 5px;
+  color: gray;
 }
 
 .image {

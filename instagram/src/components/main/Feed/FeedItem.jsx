@@ -8,7 +8,10 @@ export default function FeedItem(props) {
     <li>
       <div className={classes.profile}>
         <img src={userImg} alt="user image" />
-        <p className={classes.p}>{props.name}</p>
+        <div className={classes.info}>
+          <p className={classes.name}>{props.name}</p>
+          <p className={classes.recommend}>회원님을 위한 추천</p>
+        </div>
       </div>
       <div className={classes.post}>
         <div className={classes.image}>
