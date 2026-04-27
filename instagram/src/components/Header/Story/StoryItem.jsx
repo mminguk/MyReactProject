@@ -6,17 +6,28 @@ import { useState } from 'react';
 
 export default function StoryItem({ story }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  function openStoryHandler() {
+    setIsModalOpen(true);
+    document.body.style = `overflow: hidden`;
+  }
+
+  function closeStoryHandler() {
+    setIsModalOpen(false);
+    document.body.style = `overflow: auto`;
+  }
+
   return (
     <>
       {isModalOpen && (
         <StoryModal
           isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
+          onClose={closeStoryHandler}
           image={story.image}
           name={story.name}
         />
       )}
-      <li className={classes.li} onClick={() => setIsModalOpen(!isModalOpen)}>
+      <li className={classes.li} onClick={openStoryHandler}>
         <img src={userIcon} alt="user icon" />
         <p className={classes.p}>{story.name}</p>
       </li>

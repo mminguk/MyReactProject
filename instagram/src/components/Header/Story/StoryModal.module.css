@@ -53,6 +53,16 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.content img {
+.actions {
+  background-color: black;
+  color: white;
+  display: flex;
+}
+
+.actions input {
   width: 80%;
+  border: 1px solid white;
+  border-radius: 6px;
+  background: transparent;
+  color: white;
 }

@@ -1,5 +1,6 @@
 import userIcon from '../../../assets/circle-user-solid.png';
 import Footer from '../../Footer/Footer';
+import Liked from '../../main/Feed/Liked';
 import StoryFooter from './StoryFooter';
 import classes from './StoryModal.module.css';
 
@@ -32,6 +33,10 @@ export default function StoryModal({ name, image, isOpen, onClose }) {
         </div>
         <div className={classes.content}>
           <img src={image} alt="story image" />
+        </div>
+        <div className={classes.actions}>
+          <Liked />
+          <input type="text" placeholder="댓글을 입력해주세요..." />
         </div>
       </dialog>
     </>

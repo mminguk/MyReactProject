@@ -6,8 +6,14 @@ import classes from './Chat.module.css';
 export default function Chat() {
   const [isChating, setIsChating] = useState(false);
 
-  function chatingHandler() {
-    setIsChating(!isChating);
+  function chatingOpenHandler() {
+    setIsChating(true);
+    document.body.style = `overflow: hidden`;
+  }
+
+  function chatingCloseHandler() {
+    setIsChating(false);
+    document.body.style = `overflow: auto`;
   }
 
   return (
@@ -16,12 +22,34 @@ export default function Chat() {
         <dialog className={classes.dialog} open={isChating}>
           <header className={classes['chat-header']}>
             <h2>댓글</h2>
+            <button className={classes.button} onClick={chatingCloseHandler}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
           </header>
           <main>
             <section className={classes.chats}>
-              <img src={userIcon} alt="user icon" />
-              <span>mkhan_1011</span>
-              <p>이거 완전 개새끼네</p>
+              <ul>
+                <li>
+                  <img src={userIcon} alt="user icon" />
+                  <div>
+                    <p className={classes.name}>mkhan_1011</p>
+                    <p>이거 완전 개새끼네</p>
+                  </div>
+                </li>
+              </ul>
             </section>
             <section className={classes.actions}>
               <img src={userIcon} alt="user icon" />
@@ -38,7 +66,7 @@ export default function Chat() {
         strokeWidth={1.5}
         stroke="currentColor"
         className="size-6"
-        onClick={chatingHandler}
+        onClick={chatingOpenHandler}
       >
         <path
           strokeLinecap="round"
