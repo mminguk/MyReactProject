@@ -3,7 +3,7 @@ import { useState } from 'react';
 import userIcon from '../../../assets/circle-user-solid.png';
 import classes from './Chat.module.css';
 
-export default function Chat() {
+export default function Chat({ comments }) {
   const [isChating, setIsChating] = useState(false);
 
   function chatingOpenHandler() {
@@ -42,19 +42,26 @@ export default function Chat() {
           <main>
             <section className={classes.chats}>
               <ul>
-                <li>
-                  <img src={userIcon} alt="user icon" />
-                  <div>
-                    <p className={classes.name}>mkhan_1011</p>
-                    <p>이거 완전 개새끼네</p>
-                  </div>
-                </li>
+                {comments.map((item) => (
+                  <li key={item.id}>
+                    <img src={userIcon} alt="" />
+                    <div>
+                      <p className={classes.name}>{item.name}</p>
+                      <p>{item.content}</p>
+                    </div>
+                  </li>
+                ))}
               </ul>
             </section>
-            <section className={classes.actions}>
-              <img src={userIcon} alt="user icon" />
-              <input type="text" />
-              <button>확인</button>
+            <section>
+              <form
+                className={classes.actions}
+                onSubmit={(event) => event.preventDefault()}
+              >
+                <img src={userIcon} alt="user icon" />
+                <input type="text" />
+                <button>확인</button>
+              </form>
             </section>
           </main>
         </dialog>

@@ -11,6 +11,7 @@ export default function Feed() {
           name={item.name}
           image={item.image}
           content={item.content}
+          comments={item.comments}
         />
       ))}
     </ul>

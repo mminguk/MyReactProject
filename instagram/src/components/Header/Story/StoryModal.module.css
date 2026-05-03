@@ -53,6 +53,11 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.content img {
+  height: 500px;
+  object-fit: cover;
+}
+
 .actions {
   background-color: black;
   color: white;
@@ -64,5 +69,11 @@
   border: 1px solid white;
   border-radius: 6px;
   background: transparent;
+  color: white;
+}
+
+.send {
+  background: transparent;
+  border-color: transparent;
   color: white;
 }

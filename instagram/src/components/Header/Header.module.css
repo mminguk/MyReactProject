@@ -4,6 +4,8 @@
   text-align: center;
   box-sizing: border-box;
   font-family: 'Oleo Script';
+  display: flex;
+  align-items: center;
 }
 
 .icon svg {

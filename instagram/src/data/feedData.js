@@ -10,15 +10,34 @@ export const feed = [
     voluptatum sapiente optio, adipisci fugiat ratione suscipit, neque nam
     quis minus non.
     `,
+    comments: [
+      {
+        id: 'c1',
+        name: 'iiiiii',
+        content: '이거 완전 개새끼네',
+      },
+      {
+        id: 'c2',
+        name: 'mkhan_1011',
+        content: '귀여운 녀석',
+      },
+    ],
   },
   {
     id: 2,
     name: 'iiiiiiii',
     image:
-      'https://blog.kakaocdn.net/dna/GSWaD/btr0gB0teLR/AAAAAAAAAAAAAAAAAAAAAKJEia8x0s2ldM2dkVtOnBvUoslV1zN8PmQwaMV1ZNsU/img.jpg?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1777561199&allow_ip=&allow_referer=&signature=qqU0lUkb%2FXET5Joh63%2Bw3mqSNIU%3D',
+      'https://img.freepik.com/free-photo/closeup-shot-cute-golden-retriever-puppy-curiously-looking-camera_181624-15694.jpg?semt=ais_hybrid&w=740&q=80',
     content: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati
     corrupti voluptates omnis commodi harum. Ea inventore rem, eligendi
     voluptatum sapiente optio, adipisci fugiat ratione suscipit, neque nam
     quis minus non.`,
+    comments: [
+      {
+        id: 'c1',
+        name: 'mkhan_1011',
+        content: '이 개 키우고 싶다',
+      },
+    ],
   },
 ];
